@@ -2,7 +2,7 @@ DELETE https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b/student/6709232
 Accept: application/json
 
 ###
-POST https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b/student
+POST https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b/unicorn
 Content-Type: application/json
 
 {
