@@ -1,0 +1,17 @@
+DELETE https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b/student/67092326a0a8cd03e818a468
+Accept: application/json
+
+###
+POST https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b/student
+Content-Type: application/json
+
+{
+  "name": "Sasha Piletskii",
+  "grade": 2
+}
+
+### GET request to example server
+GET https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b/student/67092326a0a8cd03e818a468
+Accept: application/json
+
+###
