@@ -6,6 +6,7 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.http.ContentType;
 import org.apache.http.HttpStatus;
 import org.example.api.StudentRequests;
+import org.example.api.models.Student;
 import org.hamcrest.Matcher;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -17,28 +18,25 @@ public class SimpleTest {
     @BeforeAll
     public static void setupTests() {
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-        RestAssured.baseURI = "https://crudcrud.com/api/eda913bf074d48c09cddb4d35ff45b1b";
+        RestAssured.baseURI = "https://crudcrud.com/api/272721adff924451bbd5aef9129eddc9";
     }
 
     @Test
     public void userShouldBeAbleCreateStudent() {
-        StudentRequests.createStudent("{\n" +
-                "  \"name\": \"Sasha Piletskii\",\n" +
-                "  \"grade\": 2\n" +
-                "}");
+        Student student = Student.builder().name("Sasha Piletskii").grade(2).build();
+
+        StudentRequests.createStudent(student);
     }
 
     @Test
     public void userShouldBeAbleDeleteExistingStudent() {
-        String id = StudentRequests.createStudent("{\n" +
-                "  \"name\": \"Sasha Piletskii\",\n" +
-                "  \"grade\": 2\n" +
-                "}");
+        Student student = Student.builder().name("Sasha Piletskii").grade(2).build();
+        Student createdStudent = StudentRequests.createStudent(student);
 
-        StudentRequests.deleteStudent(id);
+        StudentRequests.deleteStudent(createdStudent.getId());
 
         given()
-                .get("/student/" + id)
+                .get("/student/" + createdStudent.getId())
                 .then()
                 .assertThat()
                 .statusCode(HttpStatus.SC_NOT_FOUND);
