@@ -8,18 +8,18 @@ public class RandomData {
     }
 
     public static String randomZipCode() {
-        return RandomStringUtils.randomNumeric(5);  // 5-значный почтовый индекс
+        return RandomStringUtils.randomNumeric(5);
     }
 
     public static String randomSSN() {
-        return RandomStringUtils.randomNumeric(9);  // 9-значный SSN
+        return RandomStringUtils.randomNumeric(9);
     }
 
     public static String randomPhoneNumber() {
-        return RandomStringUtils.randomNumeric(10);  // 10-значный номер телефона
+        return RandomStringUtils.randomNumeric(10);
     }
 
     public static String randomUserName() {
-        return "user_" + RandomStringUtils.randomAlphanumeric(8);  // Случайное имя пользователя
+        return "user_" + RandomStringUtils.randomAlphanumeric(8);
     }
 }
